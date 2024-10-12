@@ -12,6 +12,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="src/app.js" async></script>
     <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="adec06fa-5be0-426e-8644-fabbf433f670";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+    
 </head>
 <body>
     <nav class="navbar" x-data>
@@ -68,9 +69,9 @@
                         <span>Phone</span>
                         <input type="number" name="phone" id="phone" autocomplete="off">
                     </label>
-                    <label for="jeniskain">
-                        <span>J. Kain</span>
-                        <input type="text" name="jeniskain" id="jeniskain">
+                    <label for="note">
+                        <span>Note</span>
+                        <input type="text" name="note" id="note">
                     </label>
                     <button class="checkout-button disabled" type="submit" id="checkout-button" value="checkout">Checkout</button>
                 </form>
@@ -81,7 +82,7 @@
     <section class="hero" id="home">
         <main class="content">
             <h1>Side to Syde</h1>
-            <p>Produsen jersey printing dengan berbagai model jersey dan berbagai jenis kain. Gratis design, bebas pilih jenis kain & model kerah.
+            <p>Toko Digital kami adalah platform yang menyediakan jasa pembuatan produk digital berkualitas untuk memenuhi kebutuhan Anda, mulai dari desain grafis, CV, Kartu Nama, dan juga Website. Kami menawarkan kemudahan akses, pengiriman instan, dan berbagai pilihan pembayaran yang aman. Temukan produk digital terbaik untuk memaksimalkan produktivitas dan kreativitas Anda hanya dengan beberapa klik.
             </p>
             <a href="#hamburger-menu" class="cta">Beli Sekarang</a>
         </main>
@@ -95,15 +96,18 @@
                 <img src="./img/IMG_5325.PNG" alt="Tentang Kami">
             </div>
             <div class="content">
-                <h3>Kenapa Harus Custom Jersey Disini?</h3>
-                <p>Side to Syde merupakan produsen jersey printing custom. Berbagai macam jenis jersey mulai dari jersey futsal, sepak bola, voli, dan lain-lain.</p>
-                <p>Kami mengutamakan kepuasan pelanggan dengan membuat jersey printing yang berkualitas dengan berbagai macam bahan kain. Kamu bisa design sesuka hati untuk jersey kamu. Kami juga menyediakan gratis design untuk kamu yang belum mempunyai design.</p>
+                <h3>Selamat datang di Toko Digital Kami</h3>
+                <p>Platform terbaik untuk mendapatkan berbagai produk digital berkualitas yang siap memenuhi kebutuhan Anda. Kami menawarkan beragam pilihan, mulai dari Jasa Pembuatan CV, Kartu Nama, desain grafis, hingga Website. Dengan fokus pada kemudahan, keamanan, dan kepuasan pelanggan, Anda dapat menjelajahi produk digital kami secara instan, mengunduh dengan cepat, dan menikmati layanan akses seumur hidup.
+
+                Kami juga menyediakan berbagai opsi pembayaran yang aman dan fleksibel, menjamin transaksi Anda berlangsung lancar dan nyaman. Selain itu, setiap produk yang kami jual telah dipilih dengan cermat untuk memastikan Anda hanya mendapatkan konten terbaik yang bisa membantu meningkatkan produktivitas, kreativitas, atau bahkan hobi Anda.
+                    
+                Mulailah perjalanan digital Anda bersama kami dan temukan bagaimana produk-produk kami bisa membantu mencapai tujuan Anda dengan lebih mudah dan efisien, kapanpun dan di manapun Anda butuhkan!</p>
             </div>
         </div>
     </section>
 
     <section id="hamburger-menu" class="menu" x-data="products">
-        <h2>Barang <span>Kami</span></h2>
+        <h2>Produk <span>Kami</span></h2>
         <p></p>
 
         <div class="row">
@@ -148,7 +152,7 @@
                     <i class='bx bx-phone'></i>
                     <input type="text" placeholder="Phone">
                 </div>
-                <button type="submit" class="btn">Kirim Pesan</button>
+                <button type="submit" class="btn"><a href="https://wa.me/6289508162066/">Kirim Pesan</a></button>
             </form>
         </div>
     </section>
@@ -174,7 +178,7 @@
 
     <div class="modal" id="item-detail-modal">
         <div class="modal-container">
-            <a href="#" class="close-icon"><i class='bx bx-x' ></i></a>
+            <a href="" class="close-icon"><i class='bx bx-x' id="close-icon"></i></a>
             <div class="modal-content">
                 <img src="./menu/Case iphone 11.jpg" alt="case iphone 11">
                 <div class="product-content">
