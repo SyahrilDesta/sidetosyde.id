@@ -34,7 +34,7 @@ document.addEventListener('click', function (e) {
         shoppingCart.classList.remove('active');
     }
 });
-
+document.addEventListener('DOMContentLoaded', function() {
 const itemDetailModal = document.querySelector('#item-detail-modal');
 const itemDetailButtons = document.querySelectorAll('.item-detail-button');
 
@@ -44,9 +44,8 @@ itemDetailButtons.forEach((btn) => {
         e.preventDefault();
     };
 });
-
-
-document.querySelector('.modal .close-icon').onclick = (e) => {
+})
+const closeIcon = document.querySelector('.modal-container .close-icon ').onclick = (e) => {
     itemDetailModal.style.display = 'none';
     e.preventDefault();
 };
@@ -58,26 +57,20 @@ window.onclick = (e) => {
 };
 
 
+
 document.addEventListener('alpine:init', () => {
     Alpine.data('products', () => ({
         items: [
-            { id: 6, name: 'Jersey Bola', img: '6.png', price: 150000 },
-            { id: 7, name: 'Jersey Bulu Tangkis', img: '7.png', price: 150000 },
-            { id: 8, name: 'Jersey Basket', img: '8.png', price: 150000 },
-            { id: 9, name: 'Jersey Voli', img: '9.png', price: 150000 },
-            { id: 10, name: 'Jersey BaseBall', img: '10.png', price: 150000 },
-            { id: 11, name: 'Jersey Tenis Meja', img: '11.png', price: 150000 },
-            { id: 12, name: 'Jersey Golf', img: '12.png', price: 150000 },
-            { id: 13, name: 'Jersey Gaming', img: '13.png', price: 150000 },
-            { id: 14, name: 'Jersey Komunitas sepeda', img: '14.png', price: 150000 },
-            { id: 15, name: 'Jersey Komunitas Mancing', img: '15.png', price: 150000 },
-            { id: 16, name: 'Jersey Racing', img: '16.png', price: 150000 },
-            { id: 17, name: 'Jersey Euro', img: '17.png', price: 150000 },
-            { id: 18, name: 'Jersey Komunitas Pramuka', img: '18.png', price: 150000 },
-            { id: 19, name: 'Jersey Beladiri', img: '19.png', price: 150000 },
-            { id: 20, name: 'Jersey Retro', img: '20.png', price: 150000 },
-            { id: 21, name: 'Kemeja Printing', img: '21.png', price: 150000 },
-            { id: 22, name: 'Jaket Printing', img: '22.png', price: 150000 },
+            { id: 31, name: 'Curriculum Vitae 1', img: '31.jpg', price: 15000 },
+            { id: 40, name: 'Curriculum Vitae 2', img: '40.jpg', price: 15000 },
+            { id: 45, name: 'Curriculum Vitae 3', img: '45.jpg', price: 15000 },
+            { id: 220, name: 'Curriculum Vitae 4', img: '220.jpg', price: 15000 },
+            { id: 140, name: 'Curriculum Vitae 5', img: '140.jpg', price: 15000 },
+            { id: 176, name: 'Curriculum Vitae 6', img: '176.jpg', price: 15000 },
+            { id: 2, name: 'Kartu Nama', img: '2.jpg', price: 25000 },
+            { id: 283, name: 'Web Berita dan Portal Media Professional', img: '283.png', price: 3000000 },
+            { id: 270, name: 'Web Portofolio dan Profil Professional', img: '270.jpg', price: 800000 },
+            { id: 2001, name: 'Landing Page', img: '2001.png', price: 600000 },
         ],
     }));
 
@@ -129,6 +122,19 @@ document.addEventListener('alpine:init', () => {
     });
 });
 
+searchBox.addEventListener('input', () => {
+    const searchTerm = searchBox.value.toLowerCase();
+    document.querySelectorAll('products').forEach(item => {
+        const text = item.textContent.toLowerCase();
+        if (text.includes(searchTerm)) {
+            item.style.display = '';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+});
+
+
 const checkoutButton = document.querySelector('.checkout-button');
 checkoutButton.disabled = true;
 
@@ -147,20 +153,22 @@ form.addEventListener('keyup', function() {
 });
 
 
-checkoutButton.addEventListener('click', function(e) {
+checkoutButton.addEventListener('click', async function (e) {
     e.preventDefault();
     const formData = new FormData(form);
     const data = new URLSearchParams(formData);
     const objData = Object.fromEntries(data);
     const message = formatMessage(objData);
     window.open('http://wa.me/6289508162066?text=' + encodeURIComponent(message));
+    
+
 });
 
 const formatMessage = (obj) => {
     return `Data Customer
     Nama    : ${obj.name}
     No Hp   : ${obj.phone}
-    J. Kain    : ${obj.jeniskain}
+    Note     : ${obj.note}
 Data Pesanan
 ${JSON.parse(obj.items).map((item) => `${item.name} (${item.quantity} x ${rupiah(item.total)}) \n`)}
 TOTAL: ${rupiah(obj.total)}
@@ -174,3 +182,4 @@ const rupiah = (number) => {
         minimumFractionDigits: 0
     }).format(number);
 };
+
